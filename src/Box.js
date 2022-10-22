@@ -6,7 +6,7 @@ export default function Box(props) {
             className="box"
             key={props.id}
             id={props.id}
-            onMouseEnter={ () => props.hover(props.id) }
+            handleHover={ () => props.onMouseEnter(props.id) }
         ></div>
     )
 }
