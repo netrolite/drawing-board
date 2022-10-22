@@ -18,7 +18,7 @@ export default function App() {
         <Box 
             key={item.id}
             id={item.id}
-            handleHover={handleHover} 
+            handlehover={handleHover} 
         />
     )) 
 
