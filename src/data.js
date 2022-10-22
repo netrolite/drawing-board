@@ -1,7 +1,7 @@
 let data = [];
 
 for(let i = 0; i < 500; i++) {
-    data.push({ id: i, on: false })
+    data.push({ isOn: false, id: i })
 }
 
 export default data

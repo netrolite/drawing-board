@@ -5,6 +5,7 @@ import Box from './Box';
 export default function App() {
     const [boxes, setBoxes] = useState(data)
 
+    // hover handler for each box
     function handleHover(id) {
         setBoxes(prevState => {
             prevState.forEach(item => {
@@ -14,13 +15,15 @@ export default function App() {
         })
     }
 
+    // creating an array of all boxes
     const boxesElems = boxes.map(item => (
         <Box 
             key={item.id}
-            id={item.id}
-            handlehover={handleHover} 
+            handleHover={handleHover}
+            {...item}
         />
     )) 
+    console.log(boxesElems)
 
     return (
         <main className='main'>
