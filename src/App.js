@@ -8,7 +8,7 @@ export default function App() {
     // hover handler for each box
     function handleHover(id, bgColor) {
         setBoxes(prevState => {
-            const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16)
+            const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
             bgColor ? prevState[id].color = undefined : prevState[id].color = randomColor;
             return [...prevState]
         })
