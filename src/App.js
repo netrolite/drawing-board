@@ -6,24 +6,29 @@ export default function App() {
     const [boxes, setBoxes] = useState(data)
 
     // hover handler for each box
-    function handleHover(id) {
+    function handleHover(id, bgColor) {
         setBoxes(prevState => {
-            prevState.forEach(item => {
-                if(item.id === id) item.on = !item.on
+            return prevState.map(item => {
+                if(item.id === id) {
+                    let newColor;
+                    if(item.color) newColor = undefined;
+                    else newColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+                    return { ...item, color: newColor };
+                };
+                return { ...item };
             })
-            return [...prevState]
         })
     }
 
-    // creating an array of all boxes
+    // creating an array of all the boxes
     const boxesElems = boxes.map(item => (
         <Box 
             key={item.id}
             handleHover={handleHover}
-            {...item}
+            id={item.id}
+            color={item.color}
         />
     )) 
-    console.log(boxesElems)
 
     return (
         <main className='main'>
