@@ -1,15 +1,20 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import Box from "./Box"
 
 export default function App() {
-    const boxesElements = [];
-    for (let i = 0; i < 1000; i++) {
-        boxesElements.push(<Box key={i}/>)
-    }
+    const [boxesElems, setBoxesElems] = useState([]);
 
+    useEffect(() => {
+        if(document.body.offsetHeight < window.innerHeight) {
+            setBoxesElems(prevState => {
+                return [...prevState, <Box />]
+            })
+        } 
+    }, [boxesElems])
+    
     return (
-        <main>
-            {boxesElements}
+        <main className="main">
+            {boxesElems}
         </main>
     )
 }
